@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Angular JS Sekolah Koding</title>
+
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="js/angular.min.js"></script>
+
+</head>
+<body>
+
+    <!-- ng-app, ng model adalah direcitves -->
+
+    <!-- ini {{namax}} data binding ekspresion -->
+    <!-- <input type="text" ng-model="namax"> <br>
+    Nama: {{ namax }} <br>
+    Nama: {{ namax*12 }}  -->
+
+    <!-- ng-init, ng-repeat -->
+    <!-- <div ng-init="daftarnama=['husni','dani','cupi','icang','sumail']"></div>
+    <ul>
+        <li ng-repeat = "nama in daftarnama">{{ nama }}</li>
+    </ul> -->
+
+    <!-- bikin object -->
+    <!-- <div ng-init="data=[
+        {id:2, nama:'Husni',kota:'Yogyakarta'},
+        {id:1, nama:'Cupi',kota:'Pati'},
+        {id:3, nama:'Raisa',kota:'Sleman'},
+    ]"></div> -->
+
+    <!-- <div ng-include="'header.html'"></div> -->
+
+    <!-- Custom Directive: Element, Attribut -->
+    <!-- <header-title></header-title> -->
+    <div header-title></div>
+    
+    <div part-title></div>
+
+    <!-- controller - scope - view -->
+    <script>
+        //module angular
+        var test = angular.module('testApp',[]);
+
+        //Custom directive
+        test.directive('headerTitle',function(){
+            return {
+                retirct     : 'A',
+                templateUrl : 'header.html'
+            }
+        });
+        
+        test.directive('partTitle',function(){
+            return {
+                retirct     : 'A',
+                templateUrl : 'part.html',
+                controller : function($scope){
+                    $scope.data = [
+                        {id:2, nama:'Husni',kota:'Yogyakarta'},
+                        {id:3, nama:'Cupi',kota:'Pati'},
+                        {id:1, nama:'Raisa',kota:'Sleman'}
+                    ];
+                }
+            }
+        });
+
+
+        //controller
+        // test.controller('dataOrang', function($scope){
+        //     $scope.data = [
+        //         {id:2, nama:'Husni',kota:'Yogyakarta'},
+        //         {id:3, nama:'Cupi',kota:'Pati'},
+        //         {id:1, nama:'Raisa',kota:'Sleman'}
+        //     ];
+        // });
+
+    </script>
+
+</body>
+</html>
